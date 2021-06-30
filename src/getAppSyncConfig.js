@@ -33,7 +33,7 @@ export default function getAppSyncConfig(context, appSyncConfig) {
   const getMappingTemplate = (filePath) => {
     return fs.readFileSync(path.join(mappingTemplatesLocation, filePath), {
       encoding: 'utf8',
-    });
+    }).replace(/\"\"/g, '\\"');
   };
 
   const toAbsolutePosixPath = (basePath, filePath) =>
